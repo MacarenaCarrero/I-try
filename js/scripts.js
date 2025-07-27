@@ -14,7 +14,7 @@ const flavors = [
     phrase: ["¿Comunity Manager? De la vida ..."]
   },
   {
-    name: ["Cacao", "Coconut"],
+    name: ["Paquita", "Salas"],
     color: "#F4D03F",
     image:
       "/assets/3.png",
