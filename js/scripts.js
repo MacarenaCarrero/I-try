@@ -1,4 +1,4 @@
-const flavors = [
+const character = [
   {
     name: ["    ","Magui"],
     color: "#4A90E2",
@@ -30,16 +30,16 @@ const container = document.querySelector(".slider-container");
 const overlay = document.querySelector(".color-overlay");
 const firstWord = document.querySelector(".first-word");
 const secondWord = document.querySelector(".second-word");
-const imageElement = document.querySelector(".milkshake-image");
+const imageElement = document.querySelector(".noemi-image");
 const phraseValue = document.querySelectorAll(".phrase-value");
 const dots = document.querySelectorAll(".control-dot");
 
 function initSlider() {
-  const currentFlavor = flavors[currentIndex];
-  container.style.background = currentFlavor.color;
-  firstWord.textContent = currentFlavor.name[0];
-  secondWord.textContent = currentFlavor.name[1];
-  imageElement.src = currentFlavor.image;
+  const currentCharacter = character[currentIndex];
+  container.style.background = currentCharacter.color;
+  firstWord.textContent = currentCharacter.name[0];
+  secondWord.textContent = currentCharacter.name[1];
+  imageElement.src = currentCharacter.image;
 }
 
 function morphWords(fromWords, toWords, onComplete) {
@@ -155,22 +155,22 @@ function changeSlide(newIndex) {
   if (newIndex === currentIndex || isAnimating) return;
 
   isAnimating = true;
-  const currentFlavor = flavors[currentIndex];
-  const newFlavor = flavors[newIndex];
+  const currentCharacter = character[currentIndex];
+  const newCharacter = character[newIndex];
 
-  overlay.style.background = newFlavor.color;
+  overlay.style.background = newCharacter.color;
   overlay.classList.add("slide-down");
 
   setTimeout(() => {
-    morphWords(currentFlavor.name, newFlavor.name);
-    animatephraseValues(newFlavor.phrase);
+    morphWords(currentCharacter.name, newCharacter.name);
+    animatephraseValues(newCharacter.phrase);
 
     setTimeout(() => {
-      imageElement.src = newFlavor.image;
+      imageElement.src = newCharacter.image;
       imageElement.style.opacity = "0";
 
       setTimeout(() => {
-        container.style.background = newFlavor.color;
+        container.style.background = newCharacter.color;
         overlay.classList.remove("slide-down");
         overlay.style.transform = "translateY(-100%)";
 
@@ -190,7 +190,7 @@ function changeSlide(newIndex) {
 
 function autoSlide() {
   if (!isAnimating) {
-    const nextIndex = (currentIndex + 1) % flavors.length;
+    const nextIndex = (currentIndex + 1) % character.length;
     changeSlide(nextIndex);
   }
 }
