@@ -200,4 +200,5 @@ dots.forEach((dot, index) => {
 });
 
 initSlider();
-setInterval(autoSlide, 5000);
+setInterval(autoSlide, 5500);
+
